@@ -7,4 +7,4 @@ Spectral decomposition for characterizing long-range interaction profiles in Hi-
 :license: MIT
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.0.1"
