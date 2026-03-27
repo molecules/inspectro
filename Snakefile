@@ -61,20 +61,20 @@ def generate_targets(wc):
             f"{sample}.{binsize}.E0-E{n_eigs}.{decomp_mode}.eigvecs.pq"
         )
         # else:
-        #     targets.append(
-        #         f"{sample}.{binsize}.E1-E{n_eigs}.kmeans_sm.tsv"
-        #     )
-        #     targets.append(
-        #         f"figs/{sample}.{binsize}.E0-E{n_eigs}.{decomp_mode}.eigvals.pdf"
-        #     )
-        #     targets.extend(expand(
-        #         f"figs/{sample}.{binsize}.E1-E{n_eigs}.kmeans_sm{{n}}.heatmap.pdf",
-        #         n=n_clusters_list,
-        #     ))
-        #     targets.extend(expand(
-        #         f"figs/{sample}.{binsize}.E1-E{n_eigs}.kmeans_sm{{n}}.scatters.pdf",
-        #         n=[n for n in n_clusters_list if n < 20],
-        #     ))
+        targets.append(
+            f"{sample}.{binsize}.E1-E{n_eigs}.kmeans_sm.tsv"
+        )
+        targets.append(
+            f"figs/{sample}.{binsize}.E0-E{n_eigs}.{decomp_mode}.eigvals.pdf"
+        )
+        targets.extend(expand(
+            f"figs/{sample}.{binsize}.E1-E{n_eigs}.kmeans_sm{{n}}.heatmap.pdf",
+            n=n_clusters_list,
+        ))
+        targets.extend(expand(
+            f"figs/{sample}.{binsize}.E1-E{n_eigs}.kmeans_sm{{n}}.scatters.pdf",
+            n=[n for n in n_clusters_list if n < 20],
+        ))
     return targets
 
 
