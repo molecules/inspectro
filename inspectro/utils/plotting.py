@@ -12,17 +12,18 @@ plt.rcParams['svg.fonttype'] = 'none'
 
 
 def plot_spectrum(eigval_df, n_eigs_display, title, outpath):
+    eigval_numpy = np.array(eigval_df)
     fig = plt.figure(figsize=(15, 8))
     gs = plt.GridSpec(nrows=2, ncols=1)
     plt.suptitle(title)
     plt.subplot(gs[0])
     plt.stem(
-        eigval_df['eig'][:n_eigs_display + 1],
-        eigval_df['val'][:n_eigs_display + 1]
+        eigval_numpy['eig'][:n_eigs_display + 1],
+        eigval_numpy['val'][:n_eigs_display + 1]
     )
     plt.subplot(gs[1])
-    sns.rugplot(eigval_df['val'])
-    sns.kdeplot(eigval_df['val'], bw_adjust=0.5)
+    sns.rugplot(eigval_numpy['val'])
+    sns.kdeplot(eigval_numpy['val'], bw_adjust=0.5)
     plt.xlim(-1, 1)
     return fig
 
